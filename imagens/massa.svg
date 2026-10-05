@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320" role="img" aria-label="Ilustração de massa">
+  <defs><radialGradient id="fundo"><stop stop-color="#f8f0df"/><stop offset="1" stop-color="#e8e0d0"/></radialGradient><radialGradient id="prato"><stop stop-color="#fdfbf5"/><stop offset=".8" stop-color="#f7f3e8"/><stop offset="1" stop-color="#e2dece"/></radialGradient></defs>
+  <rect width="480" height="320" fill="url(#fundo)"/><path d="M0 286L480 42M0 40l480 250" stroke="#ded4bf" stroke-width="1" opacity=".4"/>
+  <ellipse cx="246" cy="188" rx="156" ry="105" fill="#584a3120"/><ellipse cx="240" cy="173" rx="153" ry="107" fill="url(#prato)"/><ellipse cx="240" cy="173" rx="124" ry="82" fill="#fffdf7" stroke="#e4decd" stroke-width="2"/>
+  <ellipse cx="250" cy="178" rx="100" ry="67" fill="#ba5035"/><g fill="none" stroke="#e6bc67" stroke-width="9" stroke-linecap="round"><path d="M180 149q90-24 120 10t-93 35t77 26"/><path d="M204 131q-38 80 70 66t-36-38t64 9"/><path d="M168 185q64-33 134 12m-78-63q115 7 63 84"/></g><g fill="#527638"><ellipse cx="238" cy="147" rx="19" ry="8" transform="rotate(-40 238 147)"/><ellipse cx="259" cy="135" rx="18" ry="8" transform="rotate(35 259 135)"/></g><g fill="#fbedd4"><circle cx="206" cy="187" r="3"/><circle cx="291" cy="179" r="4"/><circle cx="224" cy="212" r="3"/></g>
+</svg>

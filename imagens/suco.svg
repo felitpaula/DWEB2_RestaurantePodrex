@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320" role="img" aria-label="Ilustração de suco">
+  <defs><radialGradient id="fundo"><stop stop-color="#f8f0df"/><stop offset="1" stop-color="#e8e0d0"/></radialGradient><radialGradient id="prato"><stop stop-color="#fdfbf5"/><stop offset=".8" stop-color="#f7f3e8"/><stop offset="1" stop-color="#e2dece"/></radialGradient></defs>
+  <rect width="480" height="320" fill="url(#fundo)"/><path d="M0 286L480 42M0 40l480 250" stroke="#ded4bf" stroke-width="1" opacity=".4"/>
+  <ellipse cx="246" cy="188" rx="156" ry="105" fill="#584a3120"/><ellipse cx="240" cy="173" rx="153" ry="107" fill="url(#prato)"/><ellipse cx="240" cy="173" rx="124" ry="82" fill="#fffdf7" stroke="#e4decd" stroke-width="2"/>
+  <ellipse cx="251" cy="249" rx="65" ry="13" fill="#c9b997" opacity=".5"/><path d="M201 90h103l-13 151q-40 21-77 0z" fill="#e9d9aa" stroke="#fff9e9" stroke-width="7"/><path d="M209 125h87l-11 109q-32 16-64 0z" fill="#e5a039"/><ellipse cx="253" cy="127" rx="42" ry="9" fill="#f6be58"/><path d="M264 169l16-113h37" fill="none" stroke="#faf7ef" stroke-width="7"/><circle cx="316" cy="190" r="37" fill="#e99d35"/><circle cx="316" cy="190" r="28" fill="#f7ce73"/><path d="M316 164v52m-24-40l48 28m-48 0l48-28" stroke="#f9e6ac" stroke-width="3"/>
+</svg>
