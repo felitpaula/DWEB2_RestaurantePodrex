@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cardápio e pedidos do restaurante Podrex.">
+    <title>Podrex — Cardápio e pedidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagens/prato.svg" type="image/svg+xml">
+    
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho">
+      <div class="cabecalho__conteudo">
+        <a href="#cardapio" class="logo link-pagina" data-pagina="cardapio">podrex<span>.</span></a>
+        <nav aria-label="Navegação principal">
+          <a href="#cardapio" class="link-pagina" data-pagina="cardapio" aria-current="page">Cardápio</a>
+          <a href="#carrinho" class="link-pagina" data-pagina="carrinho">Carrinho <span id="contadorCarrinho" class="contador">0</span></a>
+          <a href="#gerenciar" class="link-pagina" data-pagina="gerenciar">Gerenciar</a>
+          <a href="#pedidos" class="link-pagina" data-pagina="pedidos">Pedidos</a>
+        </nav>
+      </div>
+    </header>
+    
+    <div id="mensagem" class="mensagem" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+    <main id="conteudo" class="conteudo-principal">
+      <div id="aplicacao">
+        
+        <section id="cardapio" class="pagina" aria-labelledby="tituloCardapio">
+          <div class="titulo-pagina"><p class="etiqueta">COMIDA FEITA COM CARINHO</p><h1 id="tituloCardapio" tabindex="-1">Seu próximo prato favorito.</h1><p>Escolha, adicione ao carrinho e deixe o resto com a gente.</p></div>
+          <section class="carrossel" aria-label="Carrossel de pratos">
+            <div id="destaque" class="destaque"></div>
+            <div class="carrossel__controles"><button id="buttonAnterior" type="button" aria-label="Prato anterior">←</button><span id="posicaoDestaque" aria-live="polite" aria-atomic="true"></span><button id="buttonProximo" type="button" aria-label="Próximo prato">→</button></div>
+          </section>
+          <div class="secao-cabecalho"><h2>Nosso cardápio</h2><div class="busca"><label for="buscaPorNome">Buscar por nome</label><input id="buscaPorNome" type="search" placeholder="Qual vai ser o pedido de hoje?"></div></div>
+          <fieldset class="filtros"><legend>Filtrar por categoria</legend>
+            <input id="todos" type="radio" name="categoria" value="" checked><label for="todos">Todos</label>
+            <input id="marmitas" type="radio" name="categoria" value="Marmitas"><label for="marmitas">Marmitas</label>
+            <input id="pratos" type="radio" name="categoria" value="Pratos"><label for="pratos">Pratos</label>
+            <input id="bebidas" type="radio" name="categoria" value="Bebidas"><label for="bebidas">Bebidas</label>
+            <input id="sobremesas" type="radio" name="categoria" value="Sobremesas"><label for="sobremesas">Sobremesas</label>
+          </fieldset>
+          <p id="resultadoBusca" class="texto-ajuda" role="status"></p>
+          <div id="listaProdutos" class="grade-produtos"></div>
+        </section>
+        <section id="carrinho" class="pagina" aria-labelledby="tituloCarrinho" hidden>
+          <div class="titulo-pagina"><p class="etiqueta">QUASE NA MESA</p><h1 id="tituloCarrinho" tabindex="-1">Seu carrinho</h1><p>Confira as quantidades e escolha como receber seu pedido.</p></div>
+          <p id="pedidoSucesso" class="sucesso" role="status" hidden></p>
+          <div class="layout-carrinho">
+            <div><div id="listaCarrinho" class="lista-carrinho"></div><button id="buttonLimparCarrinho" type="button" class="botao-perigo">Limpar carrinho</button></div>
+            <aside class="painel resumo" aria-labelledby="tituloResumo"><h2 id="tituloResumo">Resumo do pedido</h2>
+              <form id="formFinalizarPedido">
+                <div class="campo"><label for="nomeCliente">Seu nome</label><input id="nomeCliente" type="text" maxlength="80" autocomplete="name" required></div>
+                <div class="campo"><label for="tipoEntrega">Atendimento</label><select id="tipoEntrega"><option>Retirada</option><option>Consumo no local</option><option>Delivery</option></select></div>
+                <div id="campoEndereco" class="campo" hidden><label for="enderecoCliente">Endereço de entrega</label><input id="enderecoCliente" type="text" maxlength="250" autocomplete="street-address" placeholder="Rua, número e bairro"></div>
+                <div class="valores" aria-live="polite" aria-atomic="true"><p><span>Subtotal</span><strong id="subtotal"></strong></p><p><span>Taxa de entrega</span><strong id="taxaEntrega"></strong></p><p class="total"><span>Total</span><strong id="total"></strong></p></div>
+                <p class="texto-ajuda">Delivery com marmita: R$ 2,50 por entrega. Retirada, consumo no local e delivery sem marmita não têm taxa.</p>
+                <button id="buttonFinalizar" type="submit" class="botao-principal">Finalizar pedido</button>
+              </form>
+            </aside>
+          </div>
+        </section>
+        <section id="gerenciar" class="pagina" aria-labelledby="tituloGerenciar" hidden>
+          <div class="titulo-pagina"><p class="etiqueta">SEU CARDÁPIO EM DIA</p><h1 id="tituloGerenciar" tabindex="-1">Gerenciar produtos</h1><p>Cadastre, edite e exclua os produtos do restaurante.</p></div>
+          <section class="painel formulario-produto" aria-labelledby="tituloFormularioProduto"><h2 id="tituloFormularioProduto">Cadastrar produto</h2>
+            <form id="formProduto">
+              <div class="formulario-grade"><div class="campo"><label for="nomeProduto">Nome</label><input id="nomeProduto" type="text" required maxlength="80"></div><div class="campo"><label for="categoriaProduto">Categoria</label><select id="categoriaProduto" required><option value="">Selecione</option><option>Marmitas</option><option>Pratos</option><option>Bebidas</option><option>Sobremesas</option></select></div></div>
+              <div class="campo"><label for="descricaoProduto">Descrição</label><textarea id="descricaoProduto" required maxlength="300"></textarea></div>
+              <div class="formulario-grade"><div class="campo"><label for="precoProduto">Preço (R$)</label><input id="precoProduto" type="number" min="0.01" max="10000" step="0.01" required></div><div class="campo"><label for="imagemProduto">Imagem (opcional)</label><input id="imagemProduto" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="ajudaImagem"></div></div>
+              <p id="ajudaImagem" class="texto-ajuda">PNG, JPEG ou WebP até 350 KB. Sem arquivo novo, a imagem atual é mantida. Novos produtos recebem uma ilustração.</p>
+              <div class="acoes"><button id="buttonSalvarProduto" type="submit" class="botao-principal">Cadastrar produto</button><button id="buttonCancelarProduto" type="button" hidden>Cancelar edição</button></div>
+            </form>
+          </section>
+          <h2>Produtos cadastrados</h2><div id="listaGerenciamento" class="grade-produtos"></div>
+        </section>
+        <section id="pedidos" class="pagina" aria-labelledby="tituloPedidos" hidden>
+          <div class="titulo-pagina"><p class="etiqueta">DO PEDIDO À MESA</p><h1 id="tituloPedidos" tabindex="-1">Pedidos registrados</h1><p>Consulte os detalhes e atualize os dados e o status dos pedidos.</p></div>
+          <div class="campo filtro-status"><label for="filtroStatus">Filtrar por status</label><select id="filtroStatus"><option value="">Todos</option><option>Pendente</option><option>Em preparo</option><option>Pronto</option><option>Finalizado</option><option>Cancelado</option></select></div>
+          <section id="editarPedido" class="painel formulario-produto" aria-labelledby="tituloEditarPedido" hidden><h2 id="tituloEditarPedido">Editar pedido</h2>
+            <form id="formEditarPedido"><div class="campo"><label for="editarNomeCliente">Nome do cliente</label><input id="editarNomeCliente" required maxlength="80"></div>
+              <div class="formulario-grade"><div class="campo"><label for="editarTipoEntrega">Atendimento</label><select id="editarTipoEntrega"><option>Retirada</option><option>Consumo no local</option><option>Delivery</option></select></div><div class="campo"><label for="editarStatus">Status</label><select id="editarStatus"><option>Pendente</option><option>Em preparo</option><option>Pronto</option><option>Finalizado</option><option>Cancelado</option></select></div></div>
+              <div class="campo"><label for="editarEndereco">Endereço (obrigatório para delivery)</label><input id="editarEndereco" maxlength="250"></div><p class="texto-ajuda">Os itens, preços originais e data são preservados. Alterar o atendimento recalcula a taxa.</p>
+              <div class="acoes"><button type="submit" class="botao-principal">Salvar pedido</button><button id="buttonCancelarPedido" type="button">Cancelar</button></div>
+            </form>
+          </section>
+          <div id="listaPedidos" class="grade-pedidos"></div>
+        </section>
+      </div>
+      <noscript><p>Ative o JavaScript para usar o cardápio e os pedidos.</p></noscript>
+    </main>
+    <footer class="rodape"><strong>podrex.</strong><span>Feito com carinho. Dados salvos somente neste navegador.</span></footer>
+  </body>
+</html>
